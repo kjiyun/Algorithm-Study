@@ -21,7 +21,7 @@ int bin_dp(int n, int k){
     for (int i=0; i<=n; i++){
         for (int j=0; j<=min(k, i); j++){
             if ((j==0) || (j==i)) {
-                arr[i][j] = i;
+                arr[i][j] = 1;
             }
             else {
                 arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
