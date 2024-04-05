@@ -19,7 +19,7 @@ for k in range(1, n+1):
 
 for x in range(1, n+1):
     for y in range(1, n+1):
-        if P[x][y] == INF:
+        if P[x][y] == INF:  # 갈 수 없을 때는 0으로 출력
             print(0, end=' ')
         else:
             print(P[x][y], end=' ')
