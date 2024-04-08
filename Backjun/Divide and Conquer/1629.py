@@ -1,4 +1,4 @@
-# 곱셈
+# 곱셈**
 
 a, b, c = map(int, input().split())
 result = 1
