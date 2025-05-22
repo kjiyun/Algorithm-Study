@@ -14,4 +14,4 @@ for i in range(1, len(plans)):
         for k in range(i + plans[i][0], n+2):
             if price[k] < price[i] + plans[i][1]:
                 price[k] = price[i] + plans[i][1]
-print("price", price)
+print(price[-1])
