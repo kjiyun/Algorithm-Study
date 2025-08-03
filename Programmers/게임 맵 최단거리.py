@@ -69,3 +69,34 @@ maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
 solution(maps)
 
 # dfs보다는 bfs가 더 적합한 것 같음
+
+#2번째 풀었을 때
+from collections import deque
+
+def solution(maps):
+    dx = [0, 1, 0, -1] #행: 우, 하, 좌, 상 (좌표와 행렬 구분 필요)
+    dy = [1, 0, -1, 0]
+    h = len(maps) # 행의 길이
+    w = len(maps[0]) # 열의 길이
+    
+    def bfs(a, b):
+        queue = deque()
+        queue.append((a, b))
+        
+        while queue:
+            x, y = queue.popleft() 
+            
+            for k in range(4):
+                nx = x + dx[k]
+                ny = y + dy[k]
+
+                if h > nx >= 0 and w > ny >= 0 and maps[nx][ny] == 1:
+                    queue.append((nx, ny))
+                    maps[nx][ny] = maps[x][y] + 1
+    
+    bfs(0,0) # (0,0)에서 시작
+    
+    if maps[-1][-1] == 1:
+        return -1
+    else:
+        return maps[-1][-1]
